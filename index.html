@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CD — Premium Digital Experiences</title>
+    <meta
+      name="description"
+      content="CD is a premium web design and brand strategy agency crafting luxurious digital experiences that convert."
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+            },
+            boxShadow: {
+              glow: "0 0 35px rgba(168, 85, 247, 0.35)",
+              soft: "0 20px 60px rgba(15, 23, 42, 0.28)",
+            },
+            colors: {
+              ink: "#07131d",
+              panel: "#101827",
+              mist: "#eff6ff",
+              violetGlow: "#8b5cf6",
+              cyanGlow: "#38bdf8",
+              gold: "#f7c873",
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #07131d;
+        --bg-2: #0d1725;
+        --panel: rgba(17, 24, 39, 0.68);
+        --panel-strong: rgba(15, 23, 42, 0.85);
+        --glass: rgba(255, 255, 255, 0.04);
+        --glass-strong: rgba(255, 255, 255, 0.08);
+        --border: rgba(255, 255, 255, 0.1);
+        --text: #edf4ff;
+        --muted: #b6c4d9;
+        --soft: #dfeaf9;
+        --violet: #8b5cf6;
+        --cyan: #38bdf8;
+        --gold: #f7c873;
+        --pink: #f472b6;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        background:
+          radial-gradient(circle at 15% 15%, rgba(139, 92, 246, 0.16), transparent 28%),
+          radial-gradient(circle at 85% 10%, rgba(56, 189, 248, 0.12), transparent 24%),
+          radial-gradient(circle at 50% 80%, rgba(244, 114, 182, 0.08), transparent 32%),
+          linear-gradient(135deg, #050e17 0%, #091725 32%, #0c1726 100%);
+        color: var(--text);
+      }
+
+      .glass {
+        background: rgba(15, 23, 42, 0.44);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        border: 1px solid rgba(255, 255, 255, 0.09);
+      }
+
+      .glass-soft {
+        background: rgba(255, 255, 255, 0.04);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        border: 1px solid rgba(255, 255, 255, 0.06);
+      }
+
+      .section-shell {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .section-shell::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(circle at top left, rgba(139, 92, 246, 0.08), transparent 30%);
+        pointer-events: none;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(circle at 30% 35%, rgba(139, 92, 246, 0.22), transparent 20%),
+          radial-gradient(circle at 70% 20%, rgba(56, 189, 248, 0.15), transparent 18%),
+          linear-gradient(135deg, rgba(8, 17, 28, 0.96), rgba(10, 17, 24, 0.65));
+      }
+
+      .mesh {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+        background-size: 32px 32px;
+        mask-image: radial-gradient(circle at center, black 35%, transparent 90%);
+        opacity: 0.5;
+      }
+
+      .btn-primary {
+        background: linear-gradient(135deg, #8b5cf6, #c084fc);
+        box-shadow: 0 18px 40px rgba(139, 92, 246, 0.3);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+      }
+
+      .btn-primary:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 20px 45px rgba(139, 92, 246, 0.38);
+      }
+
+      .btn-secondary {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .btn-secondary:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .card-hover {
+        transition: transform 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        border-color: rgba(167, 139, 250, 0.45);
+        box-shadow: 0 24px 60px rgba(139, 92, 246, 0.12);
+      }
+
+      .service-icon {
+        width: 56px;
+        height: 56px;
+        display: grid;
+        place-items: center;
+        border-radius: 18px;
+        background: linear-gradient(135deg, rgba(139, 92, 246, 0.16), rgba(56, 189, 248, 0.1));
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .nav-link {
+        position: relative;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 0;
+        height: 2px;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, #8b5cf6, #38bdf8);
+        transition: width 0.25s ease;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .portfolio-card img {
+        transition: transform 0.55s ease;
+      }
+
+      .portfolio-card:hover img {
+        transform: scale(1.06);
+      }
+
+      .floating-card {
+        animation: floatCard 5s ease-in-out infinite;
+      }
+
+      @keyframes floatCard {
+        0%, 100% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      .reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.8s ease, transform 0.8s ease;
+      }
+
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .testimonial-track {
+        display: flex;
+        transition: transform 0.5s ease;
+      }
+
+      .testimonial-card {
+        min-width: 100%;
+        flex: 0 0 100%;
+      }
+
+      @media (min-width: 768px) {
+        .testimonial-card {
+          min-width: calc(33.333% - 1rem);
+          margin-right: 1rem;
+          flex: 0 0 calc(33.333% - 1rem);
+        }
+      }
+
+      .tag {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.38rem 0.75rem;
+        border-radius: 9999px;
+        background: rgba(139, 92, 246, 0.12);
+        color: #ddd6fe;
+        border: 1px solid rgba(139, 92, 246, 0.22);
+        font-size: 0.66rem;
+        line-height: 1;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .social-icon {
+        width: 38px;
+        height: 38px;
+        display: grid;
+        place-items: center;
+        border-radius: 9999px;
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .social-icon:hover {
+        transform: translateY(-2px);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .newsletter-input {
+        background: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        color: var(--text);
+      }
+
+      .newsletter-input::placeholder {
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      .stars {
+        color: #fbbf24;
+        letter-spacing: 0.12em;
+      }
+    </style>
+  </head>
+
+  <body class="overflow-x-hidden text-white antialiased">
+    <header class="sticky top-0 z-50 border-b border-white/10 bg-slate-950/40 backdrop-blur-2xl">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <a href="#top" class="flex items-center gap-3">
+          <div class="relative">
+            <span class="text-2xl font-black tracking-[-0.09em] text-white">CD</span>
+            <span class="absolute -right-2 top-1 h-2.5 w-2.5 rounded-full bg-violet-400 shadow-[0_0_18px_rgba(167,139,250,0.9)]"></span>
+          </div>
+        </a>
+
+        <div class="hidden items-center gap-8 text-sm text-slate-200 md:flex">
+          <a href="#services" class="nav-link hover:text-white">Services</a>
+          <a href="#work" class="nav-link hover:text-white">Portfolio</a>
+          <a href="#testimonials" class="nav-link hover:text-white">Testimonials</a>
+          <a href="#pricing" class="nav-link hover:text-white">Pricing</a>
+        </div>
+
+        <div class="hidden md:flex">
+          <a href="#contact" class="btn-primary inline-flex items-center justify-center rounded-full px-5 py-2.5 text-sm font-semibold text-white">
+            Get in Touch
+          </a>
+        </div>
+
+        <button
+          id="menu-toggle"
+          class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white md:hidden"
+          aria-label="Toggle menu"
+          aria-expanded="false"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none">
+            <path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          </svg>
+        </button>
+      </nav>
+
+      <div id="mobile-menu" class="hidden border-t border-white/10 bg-slate-950/90 md:hidden">
+        <div class="mx-auto flex max-w-7xl flex-col gap-4 px-4 py-5 text-sm text-slate-200">
+          <a href="#services" class="hover:text-white">Services</a>
+          <a href="#work" class="hover:text-white">Portfolio</a>
+          <a href="#testimonials" class="hover:text-white">Testimonials</a>
+          <a href="#pricing" class="hover:text-white">Pricing</a>
+          <a href="#contact" class="btn-primary mt-2 inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold text-white">
+            Get in Touch
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="section-shell relative overflow-hidden">
+        <div class="hero-bg"></div>
+        <div class="mesh"></div>
+
+        <div class="relative mx-auto max-w-7xl px-4 pb-16 pt-12 sm:px-6 lg:px-8 lg:pb-24 lg:pt-20">
+          <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+            <div class="relative z-10 reveal">
+              <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-violet-400/20 bg-violet-500/10 px-3 py-1.5 text-xs font-medium text-violet-200">
+                <span class="h-2 w-2 rounded-full bg-violet-400 shadow-[0_0_14px_rgba(216,180,254,0.9)]"></span>
+                Luxury digital design studio
+              </div>
+
+              <h1 class="max-w-xl text-4xl font-black leading-[0.92] tracking-[-0.07em] text-white sm:text-5xl lg:text-7xl">
+                We Build Digital
+                <span class="bg-gradient-to-r from-violet-300 via-fuchsia-200 to-cyan-300 bg-clip-text text-transparent">
+                  Masterpieces
+                </span>
+                That Convert.
+              </h1>
+
+              <p class="mt-6 max-w-lg text-base leading-7 text-slate-300 sm:text-lg">
+                Bespoke web experiences, strategic brand systems, and premium UI design for businesses that want elevated growth.
+              </p>
+
+              <div class="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a href="#contact" class="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold text-white">
+                  Start a Project
+                </a>
+                <a href="#work" class="btn-secondary inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold text-slate-100">
+                  View Our Work
+                </a>
+              </div>
+
+              <div class="mt-10 flex flex-wrap items-center gap-6 text-sm text-slate-300">
+                <div class="flex items-center gap-3">
+                  <span class="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-[0_0_18px_rgba(52,211,153,0.8)]"></span>
+                  Trusted by premium brands
+                </div>
+                <div class="flex items-center gap-3">
+                  <span class="h-2.5 w-2.5 rounded-full bg-sky-400 shadow-[0_0_18px_rgba(96,165,250,0.8)]"></span>
+                  4.9/5 client satisfaction
+                </div>
+              </div>
+            </div>
+
+            <div class="relative z-10">
+              <div class="relative mx-auto max-w-md rounded-[2rem] border border-white/10 bg-white/5 p-4 shadow-[0_30px_90px_rgba(15,23,42,0.6)] backdrop-blur-xl reveal">
+                <div class="overflow-hidden rounded-[1.5rem] border border-white/10 bg-slate-950/60">
+                  <div class="flex items-center justify-between border-b border-white/10 px-4 py-3">
+                    <div class="flex items-center gap-2">
+                      <span class="h-2.5 w-2.5 rounded-full bg-rose-400"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-amber-400"></span>
+                      <span class="h-2.5 w-2.5 rounded-full bg-emerald-400"></span>
+                    </div>
+                    <span class="text-[10px] uppercase tracking-[0.2em] text-slate-400">CD Studio</span>
+                  </div>
+
+                  <div class="space-y-4 bg-[radial-gradient(circle_at_top,_rgba(139,92,246,0.22),_transparent_30%),linear-gradient(180deg,#081521,#0b1522)] p-4">
+                    <div class="rounded-2xl border border-violet-400/20 bg-violet-500/10 p-4">
+                      <div class="mb-2 flex items-center justify-between">
+                        <span class="text-[10px] uppercase tracking-[0.24em] text-violet-200">Conversion lift</span>
+                        <span class="rounded-full bg-emerald-500/15 px-2 py-1 text-[10px] font-semibold text-emerald-300">+214%</span>
+                      </div>
+                      <div class="text-3xl font-black tracking-[-0.06em] text-white">3.8x</div>
+                      <div class="mt-1 text-xs text-slate-300">Average ROI in 90 days</div>
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-3">
+                      <div class="rounded-2xl border border-white/10 bg-slate-900/80 p-3">
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Launches</div>
+                        <div class="mt-2 text-2xl font-bold text-white">120+</div>
+                      </div>
+                      <div class="rounded-2xl border border-white/10 bg-slate-900/80 p-3">
+                        <div class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Satisfaction</div>
+                        <div class="mt-2 text-2xl font-bold text-white">99%</div>
+                      </div>
+                    </div>
+
+                    <div class="rounded-2xl border border-white/10 bg-slate-900/80 p-4">
+                      <div class="mb-3 flex items-center justify-between">
+                        <span class="text-[10px] uppercase tracking-[0.2em] text-slate-400">Performance</span>
+                        <span class="text-xs font-medium text-emerald-300">+47 ms</span>
+                      </div>
+                      <div class="h-2.5 w-full overflow-hidden rounded-full bg-white/5">
+                        <div class="h-full w-[82%] rounded-full bg-gradient-to-r from-violet-400 to-cyan-400"></div>
+                      </div>
+                      <div class="mt-3 flex justify-between text-[10px] uppercase tracking-[0.18em] text-slate-400">
+                        <span>Speed</span>
+                        <span>82%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="floating-card absolute -bottom-8 -left-6 w-56 rounded-2xl border border-white/10 bg-slate-950/75 p-4 shadow-soft backdrop-blur-xl">
+                  <div class="mb-3 flex items-center justify-between">
+                    <span class="text-[10px] uppercase tracking-[0.18em] text-slate-400">Brand equity</span>
+                    <span class="text-xs font-semibold text-violet-300">+18%</span>
+                  </div>
+                  <div class="text-3xl font-black tracking-[-0.06em] text-white">8.5x</div>
+                  <div class="mt-1 text-xs text-slate-300">engagement uplift</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="services" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center reveal">
+          <span class="inline-flex rounded-full border border-violet-400/20 bg-violet-500/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-violet-200">
+            What we do
+          </span>
+          <h2 class="mt-5 text-3xl font-black tracking-[-0.06em] text-white sm:text-4xl">
+            Premium digital solutions for ambitious brands
+          </h2>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-3">
+          <article class="card-hover glass rounded-[1.75rem] p-6 md:p-7 reveal">
+            <div class="service-icon mb-5">
+              <svg class="h-6 w-6 text-violet-200" viewBox="0 0 24 24" fill="none">
+                <path d="M4 18.5V8.5C4 7.12 5.12 6 6.5 6H17.5C18.88 6 20 7.12 20 8.5V18.5H4ZM7 10H17M8 14H12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">Custom Web Design</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">
+              High-end websites built to feel premium, communicate value instantly, and convert visitors into qualified leads.
+            </p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-200">
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>Luxury visual direction</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>Responsive UX systems</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-violet-400"></span>Conversion-focused pages</li>
+            </ul>
+          </article>
+
+          <article class="card-hover glass rounded-[1.75rem] p-6 md:p-7 reveal">
+            <div class="service-icon mb-5">
+              <svg class="h-6 w-6 text-cyan-200" viewBox="0 0 24 24" fill="none">
+                <path d="M6 8h12M6 12h12M6 16h7M18 16l1.5 1.5L22 13.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">E-Commerce Solutions</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">
+              Conversion-optimised storefronts and product experiences designed for elegance, speed, and measurable growth.
+            </p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-200">
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>Optimised funnels</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>Seamless checkout UX</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-cyan-400"></span>Upsell architecture</li>
+            </ul>
+          </article>
+
+          <article class="card-hover glass rounded-[1.75rem] p-6 md:p-7 reveal">
+            <div class="service-icon mb-5">
+              <svg class="h-6 w-6 text-amber-200" viewBox="0 0 24 24" fill="none">
+                <path d="M9 18V8.5L12 5l3 3.5V18M5 18h14" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-white">UI/UX Brand Strategy</h3>
+            <p class="mt-3 text-sm leading-7 text-slate-300">
+              Strategic positioning, messaging architecture, and interface systems designed to make your brand instantly memorable.
+            </p>
+            <ul class="mt-5 space-y-2 text-sm text-slate-200">
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>Positioning workshops</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>Design systems</li>
+              <li class="flex items-center gap-2"><span class="h-1.5 w-1.5 rounded-full bg-amber-400"></span>UX audits & wireframes</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="work" class="bg-slate-950/55 py-20">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div class="mb-12 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between reveal">
+            <div>
+              <span class="inline-flex rounded-full border border-cyan-400/20 bg-cyan-500/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+                Featured work
+              </span>
+              <h2 class="mt-5 text-3xl font-black tracking-[-0.06em] text-white sm:text-4xl">
+                Recent client launches with measurable impact
+              </h2>
+            </div>
+            <a href="#contact" class="text-sm font-semibold text-violet-200 transition hover:text-violet-100">
+              Book a discovery call →
+            </a>
+          </div>
+
+          <div class="grid gap-6 lg:grid-cols-3">
+            <article class="portfolio-card group overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900/70 shadow-soft reveal">
+              <div class="overflow-hidden">
+                <img
+                  class="h-[260px] w-full object-cover"
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1000&q=80"
+                  alt="SaaS dashboard mockup"
+                />
+              </div>
+              <div class="p-6">
+                <span class="tag">SaaS</span>
+                <h3 class="mt-4 text-xl font-bold text-white">NovaFlow</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-300">
+                  Reimagined the customer journey and brand positioning for a B2B growth platform, increasing demo bookings by 61%.
+                </p>
+                <a href="#contact" class="mt-5 inline-flex items-center text-sm font-semibold text-violet-200">
+                  View case study
+                  <span class="ml-2">→</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="portfolio-card group overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900/70 shadow-soft reveal">
+              <div class="overflow-hidden">
+                <img
+                  class="h-[260px] w-full object-cover"
+                  src="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1000&q=80"
+                  alt="Fintech product design"
+                />
+              </div>
+              <div class="p-6">
+                <span class="tag">FinTech</span>
+                <h3 class="mt-4 text-xl font-bold text-white">Northstar Capital</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-300">
+                  Crafted a premium fintech experience blending trust, speed, and high-performing mobile-first interactions.
+                </p>
+                <a href="#contact" class="mt-5 inline-flex items-center text-sm font-semibold text-violet-200">
+                  View case study
+                  <span class="ml-2">→</span>
+                </a>
+              </div>
+            </article>
+
+            <article class="portfolio-card group overflow-hidden rounded-[1.75rem] border border-white/10 bg-slate-900/70 shadow-soft reveal">
+              <div class="overflow-hidden">
+                <img
+                  class="h-[260px] w-full object-cover"
+                  src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1000&q=80"
+                  alt="Luxury e-commerce storefront"
+                />
+              </div>
+              <div class="p-6">
+                <span class="tag">E-Commerce</span>
+                <h3 class="mt-4 text-xl font-bold text-white">LUMA Atelier</h3>
+                <p class="mt-2 text-sm leading-7 text-slate-300">
+                  Elevated a premium retail brand into a luxury storefront experience that improved AOV and repeat purchases.
+                </p>
+                <a href="#contact" class="mt-5 inline-flex items-center text-sm font-semibold text-violet-200">
+                  View case study
+                  <span class="ml-2">→</span>
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="testimonials" class="mx-auto max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+        <div class="mb-12 text-center reveal">
+          <span class="inline-flex rounded-full border border-amber-400/20 bg-amber-500/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-amber-200">
+            Client feedback
+          </span>
+          <h2 class="mt-5 text-3xl font-black tracking-[-0.06em] text-white sm:text-4xl">
+            Trusted by founders who expect excellence
+          </h2>
+        </div>
+
+        <div class="relative overflow-hidden reveal">
+          <div id="testimonial-track" class="testimonial-track">
+            <article class="testimonial-card glass rounded-[1.75rem] p-6 md:p-7">
+              <div class="stars">★★★★★</div>
+              <p class="mt-5 text-base leading-7 text-slate-200">
+                “CD transformed our brand from generic to premium. We launched a site that finally communicates the value of our service and has directly improved inbound quality.”
+              </p>
+              <div class="mt-6 flex items-center gap-4">
+                <img
+                  class="h-12 w-12 rounded-full object-cover ring-2 ring-white/10"
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+                  alt="Daniel Moore"
+                />
+                <div>
+                  <div class="font-semibold text-white">Daniel Moore</div>
+                  <div class="text-sm text-slate-400">Founder, Northbridge Advisory</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card glass rounded-[1.75rem] p-6 md:p-7">
+              <div class="stars">★★★★★</div>
+              <p class="mt-5 text-base leading-7 text-slate-200">
+                “The creative direction was world-class. Every element felt intentional. Our conversion rate improved in the first month, and the new experience elevated our entire positioning.”
+              </p>
+              <div class="mt-6 flex items-center gap-4">
+                <img
+                  class="h-12 w-12 rounded-full object-cover ring-2 ring-white/10"
+                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200&q=80"
+                  alt="Maya Chen"
+                />
+                <div>
+                  <div class="font-semibold text-white">Maya Chen</div>
+                  <div class="text-sm text-slate-400">CEO, Luma Atelier</div>
+                </div>
+              </div>
+            </article>
+
+            <article class="testimonial-card glass rounded-[1.75rem] p-6 md:p-7">
+              <div class="stars">★★★★★</div>
+              <p class="mt-5 text-base leading-7 text-slate-200">
+                “We needed a launch partner who could balance strategic depth with polished execution. CD delivered a sharper brand, faster site, and stronger pipeline from day one.”
+              </p>
+              <div class="mt-6 flex items-center gap-4">
+                <img
+                  class="h-12 w-12 rounded-full object-cover ring-2 ring-white/10"
+                  src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80"
+                  alt="Ethan Brooks"
+                />
+                <div>
+                  <div class="font-semibold text-white">Ethan Brooks</div>
+                  <div class="text-sm text-slate-400">Managing Partner, Novastack</div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="mt-8 flex items-center justify-center gap-3">
+            <button id="testimonial-prev" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-white/20 hover:bg-white/10" aria-label="Previous testimonial">
+              ←
+            </button>
+            <button id="testimonial-next" class="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/5 text-white transition hover:border-white/20 hover:bg-white/10" aria-label="Next testimonial">
+              →
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div class="glass rounded-[2rem] border border-white/10 p-6 sm:p-8 reveal">
+          <div class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <div class="text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">Trusted by teams</div>
+              <h3 class="mt-3 text-2xl font-black tracking-[-0.05em] text-white">Built for modern brands, operators, and founders</h3>
+            </div>
+
+            <div class="grid w-full max-w-3xl grid-cols-2 gap-4 sm:grid-cols-4">
+              <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 text-center">
+                <div class="text-2xl font-black tracking-[-0.06em] text-white">100+</div>
+                <div class="mt-1 text-xs uppercase tracking-[0.18em] text-slate-400">Projects</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 text-center">
+                <div class="text-2xl font-black tracking-[-0.06em] text-white">99%</div>
+                <div class="mt-1 text-xs uppercase tracking-[0.18em] text-slate-400">Satisfaction</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 text-center">
+                <div class="text-2xl font-black tracking-[-0.06em] text-white">4.9/5</div>
+                <div class="mt-1 text-xs uppercase tracking-[0.18em] text-slate-400">Rating</div>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-slate-900/70 p-4 text-center">
+                <div class="text-2xl font-black tracking-[-0.06em] text-white">12k</div>
+                <div class="mt-1 text-xs uppercase tracking-[0.18em] text-slate-400">Leads</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 grid gap-4 grayscale sm:grid-cols-3 lg:grid-cols-6">
+            <div class="flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-white/2 text-lg font-semibold tracking-[0.22em] text-slate-400">
+              VANTA
+            </div>
+            <div class="flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-white/2 text-lg font-semibold tracking-[0.22em] text-slate-400">
+              NEXA
+            </div>
+            <div class="flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-white/2 text-lg font-semibold tracking-[0.22em] text-slate-400">
+              ORBIT
+            </div>
+            <div class="flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-white/2 text-lg font-semibold tracking-[0.22em] text-slate-400">
+              NOVA
+            </div>
+            <div class="flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-white/2 text-lg font-semibold tracking-[0.22em] text-slate-400">
+              APEX
+            </div>
+            <div class="flex h-20 items-center justify-center rounded-2xl border border-white/10 bg-white/2 text-lg font-semibold tracking-[0.22em] text-slate-400">
+              SOUTH
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing" class="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
+        <div class="rounded-[2rem] border border-violet-400/20 bg-gradient-to-r from-violet-600/20 to-cyan-500/15 p-7 shadow-glow sm:p-10 reveal">
+          <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+            <div>
+              <span class="inline-flex rounded-full border border-violet-300/20 bg-violet-500/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-violet-100">
+                Ready to scale?
+              </span>
+              <h2 class="mt-4 text-3xl font-black tracking-[-0.06em] text-white sm:text-4xl">
+                Let’s design your next growth chapter.
+              </h2>
+            </div>
+
+            <a href="#contact" class="btn-primary inline-flex items-center justify-center rounded-full px-6 py-3.5 text-sm font-semibold text-white">
+              Book a Discovery Call
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact" class="border-t border-white/10 bg-slate-950/70">
+      <div class="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div class="grid gap-8 lg:grid-cols-[1.15fr_0.8fr_0.8fr_1.2fr]">
+          <div>
+            <div class="flex items-center gap-3">
+              <div class="relative">
+                <span class="text-2xl font-black tracking-[-0.09em] text-white">CD</span>
+                <span class="absolute -right-2 top-1 h-2.5 w-2.5 rounded-full bg-violet-400 shadow-[0_0_18px_rgba(167,139,250,0.9)]"></span>
+              </div>
+            </div>
+            <p class="mt-4 max-w-sm text-sm leading-7 text-slate-400">
+              Creative design and digital strategy for brands that want to look premium and grow confidently.
+            </p>
+
+            <div class="mt-6 flex items-center gap-3">
+              <a href="#" class="social-icon" aria-label="Instagram">
+                <svg class="h-4 w-4 text-slate-200" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" stroke="currentColor" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="LinkedIn">
+                <svg class="h-4 w-4 text-slate-200" viewBox="0 0 24 24" fill="none"><path d="M7.5 9.5V16.5M7.5 7.2V7.3M12 16.5V12.5C12 11.1 13.1 10 14.5 10C15.9 10 17 11.1 17 12.5V16.5M4.5 16.5V9.5H7.5V16.5H4.5Z" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </a>
+              <a href="#" class="social-icon" aria-label="Dribbble">
+                <svg class="h-4 w-4 text-slate-200" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M7 7C9.8 9.4 13.6 13.7 17 18M8 16C10.5 13 14.3 10.5 19 9.5M5 12C9.2 11.4 13.7 10.8 19 6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Quick Links</h3>
+            <ul class="mt-4 space-y-3 text-sm text-slate-400">
+              <li><a href="#services" class="hover:text-white">Services</a></li>
+              <li><a href="#work" class="hover:text-white">Portfolio</a></li>
+              <li><a href="#testimonials" class="hover:text-white">Testimonials</a></li>
+              <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Company</h3>
+            <ul class="mt-4 space-y-3 text-sm text-slate-400">
+              <li><a href="#" class="hover:text-white">About</a></li>
+              <li><a href="#" class="hover:text-white">Process</a></li>
+              <li><a href="#" class="hover:text-white">Clients</a></li>
+              <li><a href="#" class="hover:text-white">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-[0.22em] text-slate-300">Newsletter</h3>
+            <p class="mt-4 text-sm leading-6 text-slate-400">Receive design insights, launch updates, and thoughtful marketing notes.</p>
+
+            <form class="mt-5 flex flex-col gap-3 sm:flex-row" action="#" method="post">
+              <input
+                class="newsletter-input flex-1 rounded-full px-4 py-3 text-sm outline-none placeholder:text-slate-400"
+                type="email"
+                placeholder="Your email address"
+                aria-label="Email address"
+              />
+              <button type="submit" class="btn-primary rounded-full px-5 py-3 text-sm font-semibold text-white">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t border-white/10 pt-6 text-sm text-slate-500">
+          © 2026 CD. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById("menu-toggle");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = !mobileMenu.classList.contains("hidden");
+        mobileMenu.classList.toggle("hidden");
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      const revealItems = document.querySelectorAll(".reveal");
+      const revealObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.15 }
+      );
+
+      revealItems.forEach((item) => revealObserver.observe(item));
+
+      const track = document.getElementById("testimonial-track");
+      const prevBtn = document.getElementById("testimonial-prev");
+      const nextBtn = document.getElementById("testimonial-next");
+      const cards = Array.from(document.querySelectorAll(".testimonial-card"));
+      let currentIndex = 0;
+
+      function updateTestimonials() {
+        if (window.innerWidth < 768) {
+          const cardWidth = cards[0].getBoundingClientRect().width + 16;
+          track.style.transform = `translateX(-${currentIndex * cardWidth}px)`;
+        } else {
+          track.style.transform = "translateX(0)";
+        }
+      }
+
+      prevBtn.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+          currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+          updateTestimonials();
+        }
+      });
+
+      nextBtn.addEventListener("click", () => {
+        if (window.innerWidth < 768) {
+          currentIndex = (currentIndex + 1) % cards.length;
+          updateTestimonials();
+        }
+      });
+
+      window.addEventListener("resize", updateTestimonials);
+      updateTestimonials();
+    </script>
+  </body>
+</html>
